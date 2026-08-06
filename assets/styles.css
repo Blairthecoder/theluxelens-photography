@@ -564,6 +564,7 @@ p {
 }
 
 .service-card {
+  display: block;
   position: relative;
   grid-column: span 4;
   min-height: 500px;
@@ -910,6 +911,11 @@ p {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.service-card__copy p {
+  margin-top: 10px;
+  color: var(--cream-2);
 }
 
 .service-card__copy h3 {
