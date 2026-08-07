@@ -602,6 +602,19 @@ p {
   transform: scale(1.035);
 }
 
+.service-card--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card--placeholder .brand-mark {
+  width: clamp(64px, 14vw, 110px);
+  height: auto;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
 .service-offering-list {
   display: grid;
   gap: clamp(34px, 6vw, 78px);
