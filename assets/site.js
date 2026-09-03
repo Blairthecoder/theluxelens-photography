@@ -240,7 +240,7 @@ if (eventModal && eventOpenButton && Date.now() <= eventEndsAt.getTime()) {
   if (eventWasDismissed()) {
     eventOpenButton.hidden = false;
   } else {
-    window.setTimeout(() => openEventModal(), 2500);
+    window.setTimeout(() => openEventModal(), 10000);
   }
 }
 
