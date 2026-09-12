@@ -168,81 +168,7 @@ if (inquiryForm) {
   }
 }
 
-const eventModal = document.querySelector("[data-event-modal]");
-const eventOpenButton = document.querySelector("[data-event-open]");
-const eventCloseButton = document.querySelector("[data-event-close]");
 const updatesForm = document.querySelector("[data-updates-form]");
-const eventSessionKey = "luxe-event-1995603757559-dismissed";
-const eventEndsAt = new Date("2026-08-28T20:00:00-05:00");
-let eventReturnFocus = null;
-
-function rememberEventDismissal() {
-  try {
-    window.sessionStorage.setItem(eventSessionKey, "true");
-  } catch {
-    // The popup still works when storage is unavailable.
-  }
-}
-
-function eventWasDismissed() {
-  try {
-    return window.sessionStorage.getItem(eventSessionKey) === "true";
-  } catch {
-    return false;
-  }
-}
-
-function openEventModal(trigger = null) {
-  if (!eventModal || Date.now() > eventEndsAt.getTime()) return;
-  eventReturnFocus = trigger;
-  eventModal.hidden = false;
-  if (eventOpenButton) eventOpenButton.hidden = true;
-  document.body.classList.add("event-modal-open");
-  window.requestAnimationFrame(() => eventModal.querySelector(".event-modal__dialog")?.focus());
-}
-
-function closeEventModal() {
-  if (!eventModal || eventModal.hidden) return;
-  eventModal.hidden = true;
-  document.body.classList.remove("event-modal-open");
-  rememberEventDismissal();
-  if (eventOpenButton && Date.now() <= eventEndsAt.getTime()) eventOpenButton.hidden = false;
-  (eventReturnFocus || eventOpenButton)?.focus();
-}
-
-if (eventModal && eventOpenButton && Date.now() <= eventEndsAt.getTime()) {
-  eventOpenButton.addEventListener("click", () => openEventModal(eventOpenButton));
-  eventCloseButton?.addEventListener("click", closeEventModal);
-  eventModal.querySelector(".event-modal__backdrop")?.addEventListener("click", closeEventModal);
-
-  document.addEventListener("keydown", (event) => {
-    if (eventModal.hidden) return;
-    if (event.key === "Escape") {
-      closeEventModal();
-      return;
-    }
-    if (event.key !== "Tab") return;
-
-    const focusable = [...eventModal.querySelectorAll('a[href], button:not([disabled]), input:not([type="hidden"]):not([disabled])')]
-      .filter((element) => !element.closest("[hidden]"));
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  });
-
-  if (eventWasDismissed()) {
-    eventOpenButton.hidden = false;
-  } else {
-    window.setTimeout(() => openEventModal(), 10000);
-  }
-}
 
 updatesForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -264,9 +190,24 @@ updatesForm?.addEventListener("submit", async (event) => {
     updatesForm.reset();
     submitButton.textContent = "Subscribed";
     status.textContent = "You are on the list. Watch your inbox for future Luxe Lens updates.";
+    window.gtag?.("event", "sign_up", { method: "newsletter" });
   } catch {
     submitButton.disabled = false;
     submitButton.textContent = defaultLabel;
     status.textContent = "We could not save your email right now. Please try again.";
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link) return;
+  const href = link.getAttribute("href");
+
+  if (href.startsWith("tel:")) {
+    window.gtag?.("event", "phone_click", { link_url: href });
+  } else if (href.startsWith("mailto:")) {
+    window.gtag?.("event", "email_click", { link_url: href });
+  } else if (href.includes("pixieset.com/booking")) {
+    window.gtag?.("event", "booking_click", { destination: href });
   }
 });
