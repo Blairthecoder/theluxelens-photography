@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Luxe Sans";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../fonts/source-sans-3-latin-variable-normal.woff2") format("woff2");
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: "Luxe Sans", "Segoe UI", Arial, sans-serif;
+}
+
+.tt-tools-button,
+.btn-primary,
+.bg-primary,
+.price-box-btn .btn-primary {
+  background-color: #08bdb5;
+  border-color: #08bdb5;
+}
+
+a,
+.text-primary,
+.tt-heading-subtitle,
+.price-box-price,
+.blog-list-item-category a {
+  color: #08aaa4;
+}
+
+.luxe-map {
+  min-height: 390px;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+  background:
+    linear-gradient(rgba(18, 24, 24, .55), rgba(18, 24, 24, .55)),
+    url("../img/misc/misc-4.jpg") center / cover no-repeat;
+  text-align: center;
+}
+
+.luxe-map a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  padding: 13px 22px;
+  background: #08bdb5;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.luxe-map a:hover,
+.luxe-map a:focus {
+  background: #078f8a;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  #logo img {
+    max-height: 42px;
+  }
+}
