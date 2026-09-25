@@ -299,6 +299,79 @@ a,
   padding: 110px 0 40px;
 }
 
+/* ==========================================================
+   Service/journal detail pages: FAQ, checklist, article body
+   ========================================================== */
+
+.luxe-check-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.luxe-check-list li {
+  position: relative;
+  padding: 8px 0 8px 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, .06);
+}
+
+.luxe-check-list li:before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #08aaa4;
+  position: absolute;
+  left: 0;
+  top: 8px;
+}
+
+.luxe-faq-list details {
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  padding: 18px 0;
+}
+
+.luxe-faq-list summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+  outline: none;
+}
+
+.luxe-faq-list summary::-webkit-details-marker {
+  color: #08aaa4;
+}
+
+.luxe-faq-list p {
+  margin: 12px 0 0;
+  opacity: .85;
+}
+
+.luxe-article-body h2 {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.luxe-article-body h2:first-child {
+  margin-top: 0;
+}
+
+.luxe-article-body p {
+  margin-bottom: 15px;
+}
+
+.luxe-article-meta {
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  font-size: 14px;
+  opacity: .75;
+}
+
+#luxe-service-intro,
+#luxe-article-section {
+  padding-top: 60px;
+}
+
 #luxe-service-offerings,
 #luxe-industries-section {
   padding-bottom: 70px;
