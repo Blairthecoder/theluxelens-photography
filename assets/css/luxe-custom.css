@@ -206,3 +206,126 @@ a,
     padding: 30px 0;
   }
 }
+
+/* ==========================================================
+   Events, journal, portfolio and services page components
+   ========================================================== */
+
+.luxe-gallery-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.luxe-event-date {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, .12);
+  min-width: 140px;
+}
+
+.luxe-event-date span {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 12px;
+  color: #08aaa4;
+}
+
+.luxe-event-date strong {
+  font-size: 44px;
+  line-height: 1.1;
+}
+
+.luxe-event-date p {
+  margin: 6px 0 0;
+  font-size: 13px;
+}
+
+.luxe-benefit-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #08aaa4;
+  margin-bottom: 8px;
+}
+
+#luxe-event-recap-section,
+#luxe-updates-section,
+#luxe-premiere-feature,
+#luxe-live-stage-section {
+  padding: 70px 0;
+}
+
+.luxe-journal-thumb,
+.luxe-portfolio-img,
+.luxe-service-thumb {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.luxe-portfolio-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.luxe-portfolio-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px 18px;
+  background: linear-gradient(to top, rgba(0, 0, 0, .75), transparent);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.luxe-portfolio-caption em {
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: 11px;
+  opacity: .85;
+  margin-bottom: 3px;
+}
+
+#luxe-404-section {
+  padding: 110px 0 40px;
+}
+
+#luxe-service-offerings,
+#luxe-industries-section {
+  padding-bottom: 70px;
+}
+
+@media (max-width: 767px) {
+  #luxe-404-section {
+    padding: 80px 0 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .luxe-gallery-img,
+  .luxe-journal-thumb,
+  .luxe-portfolio-img,
+  .luxe-service-thumb {
+    height: 220px;
+  }
+
+  #luxe-event-recap-section,
+  #luxe-updates-section,
+  #luxe-premiere-feature,
+  #luxe-live-stage-section {
+    padding: 40px 0;
+  }
+
+  .luxe-event-date {
+    margin-bottom: 24px;
+  }
+}
