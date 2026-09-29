@@ -1561,7 +1561,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 
 .filter-button {
@@ -1587,7 +1587,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .portfolio-story-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .portfolio-story[hidden] {
@@ -1616,19 +1616,61 @@ main:has(.page-hero--service-individual-headshots) > .section {
 
 .portfolio-story img {
   object-fit: cover;
+  object-position: center 24%;
   transition: transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .portfolio-story button::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12, 9, 7, 0.02) 35%, rgba(12, 9, 7, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(12, 9, 7, 0) 52%, rgba(12, 9, 7, 0.5) 74%, rgba(12, 9, 7, 0.88) 100%);
+  box-shadow: inset 0 0 0 1px rgba(234, 211, 158, 0.12);
   content: "";
+  transition: box-shadow 250ms ease;
 }
 
 .portfolio-story button:hover img,
 .portfolio-story button:focus-visible img {
-  transform: scale(1.025);
+  transform: scale(1.03);
+}
+
+.portfolio-story button:hover::after,
+.portfolio-story button:focus-visible::after {
+  box-shadow: inset 0 0 0 1px var(--gold);
+}
+
+.page-hero--hero-neon {
+  min-height: 240px;
+}
+
+.page-hero--hero-neon .page-hero__copy {
+  padding-block: clamp(40px, 4.5vw, 64px) clamp(24px, 3vw, 36px);
+}
+
+.page-hero--hero-neon .page-hero__copy h1 {
+  font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+}
+
+.page-hero--hero-neon .lede {
+  max-width: 900px;
+  margin-top: 12px;
+}
+
+.page-hero--hero-neon + .section {
+  padding-top: clamp(26px, 3vw, 40px);
+}
+
+.portfolio-intro {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.portfolio-intro .eyebrow {
+  display: none;
+}
+
+.portfolio-intro h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
 }
 
 .portfolio-story__copy {
@@ -1652,9 +1694,9 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .portfolio-story__copy strong {
   margin-top: 8px;
   font-family: var(--serif);
-  font-size: clamp(1.65rem, 2.7vw, 2.55rem);
-  font-weight: 400;
-  line-height: 1.02;
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.05;
   text-wrap: balance;
 }
 
