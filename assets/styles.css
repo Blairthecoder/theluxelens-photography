@@ -971,9 +971,17 @@ p {
   color: var(--muted);
 }
 
+.experience-grid--compact {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 14px;
+  border: 0;
+  background: none;
+}
+
 .experience-grid--compact article {
   min-height: 0;
   padding: clamp(22px, 2.6vw, 34px);
+  border: 1px solid var(--line);
 }
 
 .experience-grid--compact h3 {
@@ -990,7 +998,8 @@ p {
 
 .service-page .gallery {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 320px));
+  justify-content: start;
   columns: auto;
   gap: 12px;
 }
