@@ -3829,3 +3829,17 @@ body.event-modal-open {
     gap: 8px;
   }
 }
+
+@media (max-width: 480px) {
+  .headshot-offer__facts span {
+    padding-right: 8px;
+  }
+
+  .headshot-offer__facts span + span {
+    padding-left: 14px;
+  }
+
+  .headshot-offer__facts span strong {
+    font-size: 1.1rem;
+  }
+}
