@@ -829,6 +829,78 @@ p {
   color: var(--light-ink);
 }
 
+.client-quotes__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(18px, 2.5vw, 28px);
+}
+
+.review-feature + .client-quotes__grid {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.client-quotes__grid--single {
+  grid-template-columns: minmax(0, 860px);
+}
+
+.client-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 26px;
+  margin: 0;
+  padding: clamp(26px, 3vw, 38px);
+  border-left: 2px solid var(--gold);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.client-quote blockquote {
+  margin: 0;
+}
+
+.client-quote p {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 1.9vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.32;
+}
+
+.client-quote figcaption {
+  display: grid;
+  gap: 2px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.client-quote figcaption strong {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.section--light .client-quote {
+  border-left-color: #a87b31;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.section--light .client-quote figcaption {
+  color: #574b40;
+}
+
+.section--light .client-quote figcaption strong {
+  color: var(--light-ink);
+}
+
+.client-quotes.section--light .eyebrow {
+  color: #8f6a2e;
+}
+
+.section--light .client-quotes .text-link,
+.client-quotes.section--light .text-link {
+  color: var(--light-ink);
+}
+
 .industry-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
