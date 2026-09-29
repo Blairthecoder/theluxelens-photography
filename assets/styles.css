@@ -829,6 +829,91 @@ p {
   color: var(--light-ink);
 }
 
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(18px, 2.5vw, 28px);
+}
+
+.package-grid--single {
+  grid-template-columns: minmax(0, 520px);
+}
+
+.package-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: clamp(26px, 3vw, 38px);
+  border-left: 2px solid #a87b31;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.package-card h3 {
+  color: var(--light-ink);
+}
+
+.package-card__price {
+  color: var(--light-ink);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.package-card__price span {
+  color: #574b40;
+  font-family: var(--sans);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.package-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 20px;
+  color: #3d342c;
+}
+
+.package-card ul li::marker {
+  color: #a87b31;
+}
+
+.package-card__note {
+  color: #574b40;
+  font-size: 0.85rem;
+}
+
+.package-card .button {
+  margin-top: auto;
+}
+
+.section--light .package-grid ~ .guide-link,
+.guide-link {
+  margin-top: clamp(24px, 3vw, 36px);
+}
+
+.section--light .guide-link .text-link,
+.section--light .section-head .text-link,
+.headshot-offer__details .text-link {
+  color: var(--light-ink);
+}
+
+.headshot-offer__details .text-link {
+  display: inline-block;
+  margin-top: 14px;
+}
+
+.section--light .eyebrow {
+  color: #7b571f;
+}
+
+.headshot-offer__facts span strong {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+}
+
 .client-quotes__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
@@ -1402,7 +1487,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 
 .headshot-offer__facts {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: 38px;
   border-block: 1px solid rgba(33, 26, 21, 0.2);
 }
