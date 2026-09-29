@@ -1,33 +1,33 @@
 @font-face {
-  font-family: "Bodoni Moda";
+  font-family: "Cormorant Garamond";
   font-style: normal;
   font-display: swap;
-  font-weight: 400 900;
-  src: url("/assets/fonts/bodoni-moda-latin-variable-normal.woff2") format("woff2");
+  font-weight: 300 700;
+  src: url("/assets/fonts/cormorant-garamond-latin-variable-normal.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Bodoni Moda";
+  font-family: "Cormorant Garamond";
   font-style: italic;
   font-display: swap;
-  font-weight: 400 900;
-  src: url("/assets/fonts/bodoni-moda-latin-variable-italic.woff2") format("woff2");
+  font-weight: 300 700;
+  src: url("/assets/fonts/cormorant-garamond-latin-variable-italic.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Source Sans 3";
+  font-family: "Jost";
   font-style: normal;
   font-display: swap;
-  font-weight: 200 900;
-  src: url("/assets/fonts/source-sans-3-latin-variable-normal.woff2") format("woff2");
+  font-weight: 300 600;
+  src: url("/assets/fonts/jost-latin-variable-normal.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Source Sans 3";
+  font-family: "Jost";
   font-style: italic;
   font-display: swap;
-  font-weight: 200 900;
-  src: url("/assets/fonts/source-sans-3-latin-variable-italic.woff2") format("woff2");
+  font-weight: 300 600;
+  src: url("/assets/fonts/jost-latin-variable-italic.woff2") format("woff2");
 }
 
 :root {
@@ -44,8 +44,8 @@
   --light-surface: #ebe1d3;
   --light-ink: #211a15;
   --max: 1240px;
-  --serif: "Bodoni Moda", "Iowan Old Style", Baskerville, Georgia, serif;
-  --sans: "Source Sans 3", "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: "Jost", "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
@@ -68,6 +68,7 @@ body {
   color: var(--cream);
   font-family: var(--sans);
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.62;
   font-optical-sizing: auto;
   font-synthesis: none;
@@ -115,7 +116,7 @@ a {
   padding: 11px 16px;
   background: var(--cream);
   color: var(--ink);
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -137,7 +138,7 @@ a {
   margin: 0;
   color: var(--gold);
   font-size: 0.74rem;
-  font-weight: 650;
+  font-weight: 500;
   letter-spacing: 0.18em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -148,23 +149,23 @@ h2,
 h3 {
   margin: 0;
   font-family: var(--serif);
-  font-weight: 400;
-  line-height: 1.06;
+  font-weight: 500;
+  line-height: 1.08;
   text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(2.85rem, 7vw, 6.2rem);
-  letter-spacing: -0.025em;
+  font-size: clamp(3rem, 6.2vw, 5.6rem);
+  letter-spacing: -0.01em;
 }
 
 h2 {
-  font-size: clamp(2.25rem, 4.7vw, 4.5rem);
-  letter-spacing: -0.018em;
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+  letter-spacing: -0.005em;
 }
 
 h3 {
-  font-size: clamp(1.55rem, 2.6vw, 2.2rem);
+  font-size: clamp(1.75rem, 2.8vw, 2.4rem);
 }
 
 p {
@@ -197,13 +198,13 @@ p {
   border-radius: 0;
   background: var(--gold);
   color: var(--ink);
-  font-size: 0.84rem;
-  font-weight: 650;
-  letter-spacing: 0.025em;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  text-transform: none;
+  text-transform: uppercase;
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
@@ -224,7 +225,7 @@ p {
 
 .text-link {
   color: var(--gold-light);
-  font-weight: 700;
+  font-weight: 500;
   text-underline-offset: 0.25em;
 }
 
@@ -275,7 +276,7 @@ p {
   margin-top: 6px;
   color: var(--muted);
   font-size: 0.58rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -295,7 +296,7 @@ p {
   padding: 14px 2px;
   color: var(--cream-2);
   font-size: clamp(0.9rem, calc(0.25vw + 0.73rem), 0.96rem);
-  font-weight: 650;
+  font-weight: 500;
   letter-spacing: 0.015em;
   line-height: 1.2;
   text-decoration: none;
@@ -327,7 +328,7 @@ p {
 
 .nav-book {
   padding: 12px 17px;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
 }
 
 .menu-toggle {
@@ -469,7 +470,7 @@ p {
 .trust-list span {
   color: var(--gold);
   font-size: 0.62rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -702,7 +703,7 @@ p {
   border: 1px solid #8c6425;
   color: #5f4218;
   font-size: 0.7rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.13em;
   line-height: 1.2;
   text-align: center;
@@ -774,7 +775,7 @@ p {
 .review-feature__meta > p:last-child {
   color: #6e6257;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -856,7 +857,7 @@ p {
 .industry-card > span {
   color: var(--gold);
   font-size: 0.66rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.16em;
 }
 
@@ -919,7 +920,7 @@ p {
 .update-kicker {
   color: var(--cream-2);
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -942,7 +943,7 @@ p {
 .service-card__copy span {
   color: var(--gold-light);
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -1349,7 +1350,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .headshot-offer__facts small {
   color: #695d51;
   font-size: 0.68rem;
-  font-weight: 750;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1447,7 +1448,8 @@ main:has(.page-hero--service-individual-headshots) > .section {
   color: var(--cream);
   cursor: pointer;
   font-family: var(--serif);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
+  font-weight: 500;
   line-height: 1.25;
   list-style: none;
 }
@@ -1491,7 +1493,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   color: var(--cream-2);
   cursor: pointer;
   font-size: 0.7rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -1563,7 +1565,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .portfolio-story__copy small {
   color: var(--gold-light);
   font-size: 0.65rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.17em;
   text-transform: uppercase;
 }
@@ -1638,7 +1640,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   color: var(--cream);
   cursor: pointer;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -1661,7 +1663,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   margin-top: 12px;
   color: var(--muted);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1731,7 +1733,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   background: linear-gradient(transparent, rgba(12, 9, 7, 0.82));
   color: var(--cream);
   font-size: 0.66rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.16em;
   opacity: 0;
   text-transform: uppercase;
@@ -1765,7 +1767,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   display: block;
   color: var(--gold);
   font-size: 0.66rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1803,7 +1805,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .field label {
   color: var(--cream-2);
   font-size: 0.69rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1885,7 +1887,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .event-feature__date > span {
   color: var(--gold);
   font-size: 0.76rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -1895,7 +1897,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   font-family: var(--serif);
   font-size: clamp(7.8rem, 14vw, 12rem);
   font-weight: 400;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.02em;
   line-height: 0.9;
 }
 
@@ -1903,7 +1905,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   margin-top: 34px;
   color: var(--muted);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   line-height: 1.8;
   text-transform: uppercase;
@@ -1949,7 +1951,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .event-facts dt {
   color: var(--gold);
   font-size: 0.66rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -1978,7 +1980,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .event-benefit > span {
   color: #8c6425;
   font-size: 0.7rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
 }
 
@@ -2027,7 +2029,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .updates-form__email span {
   color: var(--cream-2);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -2134,7 +2136,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   border: 1px solid rgba(91, 72, 54, 0.28);
   color: #5e5145;
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -2234,7 +2236,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   margin-top: 22px;
   color: #9e9185;
   font-size: 0.72rem;
-  font-weight: 650;
+  font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -2317,7 +2319,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .journal-article__header a,
 .journal-article__body a {
   color: var(--gold-light);
-  font-weight: 700;
+  font-weight: 500;
   text-underline-offset: 4px;
 }
 
@@ -2412,7 +2414,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .footer-column h2 {
   font-family: var(--sans);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -2578,7 +2580,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   border-left: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.73rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.12em;
   line-height: 1.55;
   text-transform: uppercase;
@@ -2606,7 +2608,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
   margin-top: 18px;
   color: var(--gold-light);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -2657,7 +2659,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 .event-modal__email span {
   color: var(--cream-2);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -2731,7 +2733,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 
 .event-modal-trigger span {
   font-size: 0.66rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
