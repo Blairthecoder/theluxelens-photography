@@ -1,4 +1,11 @@
 @font-face {
+  font-family: "Top Luxury";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/top-luxury.woff2") format("woff2");
+}
+@font-face {
   font-family: "Cormorant Garamond";
   font-style: normal;
   font-display: swap;
@@ -44,7 +51,7 @@
   --light-surface: #ebe1d3;
   --light-ink: #211a15;
   --max: 1240px;
-  --serif: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --serif: "Top Luxury", "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --sans: "Jost", "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
