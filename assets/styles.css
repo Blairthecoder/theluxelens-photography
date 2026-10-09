@@ -1770,11 +1770,31 @@ main:has(.page-hero--service-individual-headshots) > .section {
   text-transform: uppercase;
 }
 
-.filter-button:hover,
-.filter-button[aria-pressed="true"] {
+.filter-button:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.filter-button[aria-pressed="true"],
+.filter-button[aria-pressed="true"]:hover {
   border-color: var(--gold);
   background: var(--gold);
   color: var(--ink);
+}
+
+.filter-button:focus-visible {
+  outline-offset: 2px;
+}
+
+.portfolio-count {
+  margin: -8px 0 18px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+html:not(.js) .portfolio-filter,
+html:not(.js) .portfolio-count {
+  display: none;
 }
 
 .portfolio-story-grid {
@@ -4312,5 +4332,124 @@ body.event-modal-open {
   .home-lens .section-head {
     display: grid;
     gap: 0;
+  }
+}
+
+/* Mobile portfolio filters, gallery viewer hint and booking bar */
+.portfolio-viewer__figure {
+  touch-action: pan-y pinch-zoom;
+}
+
+.portfolio-viewer__hint {
+  display: none;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.portfolio-viewer__controls[hidden] {
+  display: none;
+}
+
+.booking-bar {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .portfolio-filter {
+    margin-bottom: 14px;
+  }
+
+  .portfolio-filter.is-sticky-ready {
+    position: sticky;
+    top: var(--filter-top, 0);
+    z-index: 20;
+    background: var(--ink);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .portfolio-controls {
+    flex-wrap: nowrap;
+    margin: 0 -16px;
+    padding: 6px 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .portfolio-controls::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-button {
+    flex: 0 0 auto;
+    padding: 0 16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+
+  .filter-button[aria-pressed="true"] {
+    font-weight: 700;
+    box-shadow: 0 0 0 1px var(--gold-light);
+  }
+
+  .portfolio-count {
+    margin-top: 0;
+  }
+
+  .portfolio-viewer__hint {
+    display: block;
+  }
+
+  .portfolio-viewer__hint[hidden] {
+    display: none;
+  }
+
+  .booking-bar {
+    position: fixed;
+    z-index: 90;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--line);
+    background: rgba(18, 15, 13, 0.97);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+    visibility: hidden;
+  }
+
+  .booking-bar.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    visibility: visible;
+  }
+
+  .booking-bar__button {
+    min-width: 220px;
+    min-height: 44px;
+  }
+
+  body.nav-open .booking-bar,
+  body.viewer-open .booking-bar,
+  body:has(dialog[open]) .booking-bar {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-bar,
+  .booking-bar.is-visible {
+    transform: none;
+    transition: none;
   }
 }
