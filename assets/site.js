@@ -158,6 +158,7 @@ if (inquiryForm) {
   const industry = parameters.get("industry");
   const serviceSelect = inquiryForm.querySelector("[name='service']");
   const industrySelect = inquiryForm.querySelector("[name='industry']");
+  let industryPreselected = false;
 
   if (service && serviceSelect && [...serviceSelect.options].some((option) => option.value === service)) {
     serviceSelect.value = service;
@@ -165,7 +166,53 @@ if (inquiryForm) {
 
   if (industry && industrySelect && [...industrySelect.options].some((option) => option.value === industry)) {
     industrySelect.value = industry;
+    industryPreselected = true;
   }
+
+  // Progressive disclosure: every project field stays in the static HTML for
+  // Netlify and no-JS visitors; script only hides the ones that do not apply.
+  const projectGroup = inquiryForm.querySelector("[data-project-group]");
+  const projectFields = [...inquiryForm.querySelectorAll("[data-project-field]")];
+  const projectStatus = inquiryForm.querySelector("[data-project-status]");
+  const businessFields = ["business-name", "industry", "team-size", "deadline", "image-use"];
+  const fieldsByService = {
+    "Branding or lifestyle": businessFields,
+    "Professional headshots": businessFields,
+    "Commercial or business photography": businessFields,
+    "Team or on-site headshots": businessFields,
+    "Trade-show or conference headshots": businessFields,
+    Event: ["business-name", "team-size", "deadline", "image-use"],
+    Wedding: ["team-size"],
+  };
+  let hadVisibleFields = null;
+
+  function syncProjectFields() {
+    if (!projectGroup || !serviceSelect) return;
+    const selected = serviceSelect.value;
+    const visible = fieldsByService[selected] || (!selected && industryPreselected ? businessFields : []);
+
+    projectFields.forEach((field) => {
+      const show = visible.includes(field.dataset.projectField);
+      field.hidden = !show;
+      // Disabled controls leave the tab order and the submission; values are kept in the DOM.
+      field.querySelectorAll("input, select, textarea").forEach((control) => {
+        control.disabled = !show;
+      });
+    });
+
+    const hasVisibleFields = visible.length > 0;
+    projectGroup.hidden = !hasVisibleFields;
+    if (projectStatus && hadVisibleFields !== null && hadVisibleFields !== hasVisibleFields) {
+      projectStatus.textContent = hasVisibleFields
+        ? "Additional project questions are now available."
+        : "Additional project questions are hidden.";
+    }
+    hadVisibleFields = hasVisibleFields;
+  }
+
+  serviceSelect?.addEventListener("change", syncProjectFields);
+  window.addEventListener("pageshow", syncProjectFields);
+  syncProjectFields();
 }
 
 const updatesForm = document.querySelector("[data-updates-form]");
