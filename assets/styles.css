@@ -2101,6 +2101,23 @@ main:has(.page-hero--service-individual-headshots) > .section {
   text-underline-offset: 5px;
 }
 
+.contact-card .contact-email__action {
+  display: none;
+}
+
+.contact-card .contact-email__address {
+  display: inline;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+#inquiry-form {
+  scroll-margin-top: 108px;
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3253,6 +3270,60 @@ body.event-modal-open {
     padding: 12px 14px;
   }
 
+  #inquiry-form {
+    scroll-margin-top: 98px;
+  }
+
+  .contact-card .contact-email {
+    display: block;
+  }
+
+  .contact-card .contact-email__action {
+    display: block;
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.2;
+    text-transform: none;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+  }
+
+  .contact-card .contact-email__address {
+    display: block;
+    margin-top: 6px;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .review-feature {
+    gap: 28px;
+  }
+
+  .review-feature blockquote {
+    padding: 24px 20px;
+  }
+
+  .review-feature blockquote > p {
+    font-size: clamp(1.4rem, 6.2vw, 1.75rem);
+    line-height: 1.28;
+  }
+
+  .review-feature blockquote footer {
+    margin-top: 20px;
+  }
+
+  .review-feature blockquote .text-link {
+    margin-top: 16px;
+  }
+
   .hero-media {
     height: clamp(220px, 34svh, 300px);
     min-height: 0;
@@ -3722,6 +3793,14 @@ body.event-modal-open {
 
   .button-row .button {
     width: 100%;
+  }
+
+  .hero-copy .button-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy .button {
+    white-space: nowrap;
   }
 
   .portfolio-preview {
