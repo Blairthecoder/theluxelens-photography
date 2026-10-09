@@ -2129,6 +2129,50 @@ main:has(.page-hero--service-individual-headshots) > .section {
   gap: 8px;
 }
 
+.form-group {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form-group legend {
+  margin: 0 0 14px;
+  padding: 0;
+  color: var(--gold);
+  font-size: 0.69rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.form-group[hidden],
+.field[hidden] {
+  display: none;
+}
+
+.field-hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .field--full {
   grid-column: 1 / -1;
 }
@@ -3754,6 +3798,11 @@ body.event-modal-open {
 
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .field--full,
