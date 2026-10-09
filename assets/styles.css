@@ -221,6 +221,14 @@ p {
   transform: translateY(-2px);
 }
 
+@media (max-width: 380px) {
+  /* Long button labels (e.g. "Ask About Maternity Portraits") otherwise break onto two lines at 320px. */
+  .button {
+    padding-inline: 14px;
+    letter-spacing: 0.08em;
+  }
+}
+
 .button--ghost {
   background: transparent;
   color: var(--cream);
@@ -928,6 +936,10 @@ p {
   color: #7b571f;
 }
 
+.section--light .feature-strip--premiere .eyebrow {
+  color: var(--gold);
+}
+
 .headshot-offer__facts span strong {
   font-size: clamp(1.25rem, 2vw, 1.6rem);
 }
@@ -1086,7 +1098,7 @@ p {
 }
 
 .client-quotes.section--light .eyebrow {
-  color: #8f6a2e;
+  color: #7b571f;
 }
 
 .section--light .client-quotes .text-link,
@@ -2373,7 +2385,7 @@ html:not(.js) .portfolio-count {
 }
 
 .event-benefit > span {
-  color: #8c6425;
+  color: #6f4e1a;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -2505,7 +2517,7 @@ html:not(.js) .portfolio-count {
 }
 
 .newsletter-issue__copy .update-kicker span {
-  color: #8c6425;
+  color: #7b571f;
 }
 
 .newsletter-issue__copy h2 {
@@ -2831,6 +2843,24 @@ html:not(.js) .portfolio-count {
   color: var(--gold-light);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  /* Footer links were 23px tall; give each row a 44px touch target and drop the row gap it replaces. */
+  .footer-column ul {
+    gap: 0;
+  }
+
+  .footer-column a,
+  .footer-brand .brand {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .footer-brand .brand {
+    display: inline-flex;
+  }
 }
 
 .footer-bottom {
@@ -3559,6 +3589,12 @@ body.event-modal-open {
     order: -1;
   }
 
+  /* Keep the decorative gold frame inside the 16px page gutter. */
+  .split__media::before {
+    top: -12px;
+    right: -12px;
+  }
+
   .feature-strip {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -3569,6 +3605,8 @@ body.event-modal-open {
 
   .feature-strip--premiere .feature-strip__media {
     min-height: clamp(320px, 82vw, 440px);
+    /* min-height would otherwise transfer through the 4/3 ratio and widen the column past the viewport */
+    aspect-ratio: auto;
   }
 
   .feature-strip--premiere .feature-strip__copy {
