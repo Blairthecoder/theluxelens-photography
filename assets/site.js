@@ -19,24 +19,62 @@ window.addEventListener("load", () => {
   window.setTimeout(loadAnalytics, 8000);
 }, { once: true });
 
-function setMenu(open) {
+const navBreakpoint = window.matchMedia("(max-width: 1040px)");
+// Page regions that must not be reachable while the full-screen menu covers them.
+const menuBackground = document.querySelectorAll("main, .site-footer");
+
+function setMenu(open, { restoreFocus = false } = {}) {
   if (!menuButton || !mobileNav) return;
+  const wasOpen = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", String(open));
   menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
   mobileNav.dataset.open = String(open);
   document.body.classList.toggle("nav-open", open);
+  menuBackground.forEach((region) => { region.inert = open; });
+  if (open && !wasOpen) mobileNav.querySelector("a")?.focus();
+  if (!open && wasOpen && restoreFocus) menuButton.focus();
+}
+
+function menuFocusables() {
+  return [menuButton, ...mobileNav.querySelectorAll("a[href]")];
 }
 
 menuButton?.addEventListener("click", () => {
-  setMenu(menuButton.getAttribute("aria-expanded") !== "true");
+  const open = menuButton.getAttribute("aria-expanded") !== "true";
+  setMenu(open, { restoreFocus: true });
 });
 
 mobileNav?.addEventListener("click", (event) => {
-  if (event.target.closest("a")) setMenu(false);
+  const link = event.target.closest("a");
+  // Links that open a new tab leave this page in place, so focus goes back to the menu button.
+  if (link) setMenu(false, { restoreFocus: link.target === "_blank" });
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") setMenu(false);
+  if (!menuButton || menuButton.getAttribute("aria-expanded") !== "true") return;
+  if (event.key === "Escape") {
+    setMenu(false, { restoreFocus: true });
+  } else if (event.key === "Tab") {
+    const focusables = menuFocusables();
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    const current = document.activeElement;
+    if (!focusables.includes(current)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+    } else if (event.shiftKey && current === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && current === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
+
+// Growing past the mobile breakpoint swaps in the desktop nav; release the scroll lock and inert regions.
+navBreakpoint.addEventListener("change", (event) => {
+  if (!event.matches) setMenu(false);
 });
 
 const revealItems = document.querySelectorAll(".reveal");
