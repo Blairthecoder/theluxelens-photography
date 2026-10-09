@@ -3978,3 +3978,339 @@ body.event-modal-open {
     font-size: 1.1rem;
   }
 }
+
+/* Homepage booking-journey layout (scoped to .home-main) */
+.home-main > .section {
+  padding-block: clamp(48px, 6.5vw, 96px);
+}
+
+.home-main .section-head {
+  margin-bottom: clamp(26px, 4vw, 48px);
+}
+
+.home-main .section-head h2 {
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+}
+
+.industry-grid--home {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.industry-grid--home .industry-card {
+  min-height: 0;
+  padding: clamp(22px, 2.6vw, 34px);
+}
+
+.industry-grid--home .industry-card h3 {
+  font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+}
+
+.industry-grid--home .industry-card p {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.portfolio-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.portfolio-link .portfolio-preview {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  gap: 14px;
+}
+
+.portfolio-link .portfolio-preview picture {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.portfolio-link .portfolio-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.portfolio-link:hover .portfolio-preview img {
+  transform: scale(1.025);
+}
+
+.portfolio-link__cta {
+  margin-top: 30px;
+}
+
+.portfolio-link:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 6px;
+}
+
+.home-proof {
+  align-items: start;
+  gap: clamp(28px, 6vw, 88px);
+}
+
+.home-proof .split__media img {
+  max-height: 560px;
+}
+
+.home-proof .split__copy h2 {
+  margin-top: 14px;
+}
+
+.home-proof__intro {
+  margin-top: 18px;
+  max-width: 56ch;
+}
+
+.home-proof__motto {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.2;
+}
+
+.home-proof__motto em {
+  color: #7b571f;
+}
+
+.home-proof__rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+  margin-top: 22px;
+}
+
+.home-proof__rating .review-stars {
+  margin: 0;
+}
+
+.home-proof__rating a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--light-ink);
+  font-weight: 500;
+  text-underline-offset: 0.25em;
+}
+
+.home-proof__quote {
+  margin: 4px 0 0;
+  padding: 20px 22px;
+  border-left: 2px solid #a87b31;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.home-proof__quote p {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.home-proof__quote footer {
+  display: grid;
+  gap: 2px;
+  margin-top: 12px;
+  color: #574b40;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-proof__quote footer strong {
+  color: var(--light-ink);
+}
+
+.home-proof .text-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin-top: 14px;
+  color: var(--light-ink);
+}
+
+.ways-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 26px);
+}
+
+.ways-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--ink);
+  color: var(--cream);
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.ways-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+}
+
+.ways-card picture {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.ways-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.ways-card__copy {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px 22px;
+}
+
+.ways-card__copy h3 {
+  font-size: clamp(1.35rem, 1.8vw, 1.6rem);
+  line-height: 1.12;
+}
+
+.ways-card__copy p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.ways-card__link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  color: var(--gold-light);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.ways-card:focus-visible,
+.lens-list a:focus-visible,
+.home-proof a:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 3px;
+}
+
+.home-lens .section-head {
+  align-items: center;
+}
+
+.home-lens .section-head .text-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--light-ink);
+}
+
+.lens-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 3vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lens-list li {
+  padding-top: 18px;
+  border-top: 1px solid rgba(35, 28, 22, 0.28);
+}
+
+.lens-list time {
+  color: #574b40;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.lens-list h3 {
+  margin-top: 8px;
+  color: var(--light-ink);
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.18;
+}
+
+.lens-list h3 a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.lens-list p {
+  margin-top: 8px;
+  color: #574b40;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1040px) {
+  .industry-grid--home {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-link .portfolio-preview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ways-grid,
+  .lens-list {
+    grid-template-columns: 1fr;
+  }
+
+  .ways-card {
+    grid-template-columns: minmax(120px, 0.34fr) 1fr;
+    grid-template-rows: none;
+  }
+
+  .ways-card picture {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .industry-grid--home {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-link .portfolio-preview {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .home-proof .split__media img {
+    max-height: 420px;
+    object-position: center 20%;
+  }
+
+  .home-proof__quote {
+    padding: 18px 16px;
+  }
+
+  .ways-card {
+    grid-template-columns: 104px 1fr;
+  }
+
+  .ways-card__copy {
+    padding: 14px 16px;
+  }
+
+  .home-lens .section-head {
+    display: grid;
+    gap: 0;
+  }
+}
