@@ -381,6 +381,15 @@ if (inquiryForm) {
   serviceSelect?.addEventListener("change", syncProjectFields);
   window.addEventListener("pageshow", syncProjectFields);
   syncProjectFields();
+
+  inquiryForm.addEventListener("submit", () => {
+    window.gtag?.("event", "generate_lead", {
+      lead_source: "website_inquiry_form",
+      service: serviceSelect?.value || "not_selected",
+      page_path: window.location.pathname,
+      transport_type: "beacon",
+    });
+  });
 }
 
 const updatesForm = document.querySelector("[data-updates-form]");
@@ -423,6 +432,15 @@ document.addEventListener("click", (event) => {
   } else if (href.startsWith("mailto:")) {
     window.gtag?.("event", "email_click", { link_url: href });
   } else if (href.includes("pixieset.com/booking")) {
-    window.gtag?.("event", "booking_click", { destination: href });
+    window.gtag?.("event", "booking_click", {
+      destination: href,
+      link_text: link.textContent.trim().replace(/\s+/g, " ").slice(0, 80),
+      page_path: window.location.pathname,
+    });
+  } else if (href.startsWith("/contact/")) {
+    window.gtag?.("event", "inquiry_start", {
+      link_text: link.textContent.trim().replace(/\s+/g, " ").slice(0, 80),
+      page_path: window.location.pathname,
+    });
   }
 });
