@@ -1579,6 +1579,19 @@ main:has(.page-hero--service-individual-headshots) > .section {
   max-width: 860px;
 }
 
+.page-hero--conversion {
+  min-height: clamp(420px, 54vw, 540px);
+  align-items: center;
+}
+
+.page-hero--conversion .page-hero__copy {
+  padding-block: clamp(72px, 10vw, 116px);
+}
+
+.page-hero__actions {
+  margin-top: 30px;
+}
+
 .services-intro {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
@@ -3734,6 +3747,19 @@ body.event-modal-open {
 
   .page-hero__brandmark .brand-mark {
     width: min(78vw, 380px);
+  }
+
+  .page-hero--conversion .page-hero__copy {
+    padding-block: 64px;
+  }
+
+  .page-hero__actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .page-hero__actions .button {
+    width: 100%;
   }
 
   .included-list {
