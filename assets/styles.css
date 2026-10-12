@@ -1512,12 +1512,13 @@ p {
 
 .page-hero__copy h1 {
   max-width: 1050px;
-  margin-top: 18px;
+  margin-top: 14px;
+  font-size: clamp(2.6rem, 4.6vw, 4.2rem);
 }
 
 .page-hero__copy .lede {
   max-width: 720px;
-  margin-top: 24px;
+  margin-top: 18px;
   color: var(--cream-2);
 }
 
@@ -1567,7 +1568,7 @@ main:has(.page-hero--service-individual-headshots) > .section {
 }
 
 .page-hero__brandmark .brand-mark {
-  width: clamp(260px, 36vw, 520px);
+  width: clamp(220px, 28vw, 400px);
   height: auto;
 }
 
@@ -1580,16 +1581,16 @@ main:has(.page-hero--service-individual-headshots) > .section {
 }
 
 .page-hero--conversion {
-  min-height: clamp(420px, 54vw, 540px);
+  min-height: clamp(300px, 34vw, 420px);
   align-items: center;
 }
 
 .page-hero--conversion .page-hero__copy {
-  padding-block: clamp(72px, 10vw, 116px);
+  padding-block: clamp(44px, 5vw, 72px);
 }
 
 .page-hero__actions {
-  margin-top: 30px;
+  margin-top: 24px;
 }
 
 .services-intro {
@@ -3724,7 +3725,15 @@ body.event-modal-open {
   }
 
   .page-hero__copy h1 {
-    font-size: clamp(2.8rem, 13.5vw, 5rem);
+    margin-top: 12px;
+    font-size: clamp(2.2rem, 9.4vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .page-hero__copy .lede {
+    margin-top: 14px;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .page-hero--brand::before {
@@ -3746,20 +3755,30 @@ body.event-modal-open {
   }
 
   .page-hero__brandmark .brand-mark {
-    width: min(78vw, 380px);
+    width: min(62vw, 280px);
+  }
+
+  .page-hero--conversion {
+    min-height: 0;
   }
 
   .page-hero--conversion .page-hero__copy {
-    padding-block: 64px;
+    padding-block: 36px 40px;
   }
 
   .page-hero__actions {
     display: grid;
     width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
   }
 
   .page-hero__actions .button {
     width: 100%;
+    min-height: 46px;
+    padding: 12px 8px;
+    letter-spacing: 0.08em;
   }
 
   .included-list {
@@ -3990,6 +4009,10 @@ body.event-modal-open {
 }
 
 @media (max-width: 340px) {
+  .page-hero__actions {
+    grid-template-columns: 1fr;
+  }
+
   .event-modal__event .eyebrow {
     font-size: 0.6rem;
     letter-spacing: 0.16em;
