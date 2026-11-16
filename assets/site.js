@@ -19,6 +19,19 @@ window.addEventListener("load", () => {
   window.setTimeout(loadAnalytics, 8000);
 }, { once: true });
 
+document.addEventListener("click", (event) => {
+  const link = event.target.closest?.("a[href]");
+  if (!link || typeof window.gtag !== "function") return;
+  const href = link.getAttribute("href") || "";
+  let method = "";
+  if (href.startsWith("tel:")) method = "phone";
+  else if (href.startsWith("mailto:")) method = "email";
+  else if (href.includes("pixieset.com/booking")) method = "pixieset_booking";
+  if (method) {
+    window.gtag("event", "generate_lead", { method, link_url: href, page_path: window.location.pathname });
+  }
+});
+
 const navBreakpoint = window.matchMedia("(max-width: 1040px)");
 // Page regions that must not be reachable while the full-screen menu covers them.
 const menuBackground = document.querySelectorAll("main, .site-footer");
